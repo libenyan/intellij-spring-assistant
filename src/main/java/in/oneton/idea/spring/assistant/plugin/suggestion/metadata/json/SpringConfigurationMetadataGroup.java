@@ -1,7 +1,7 @@
 package in.oneton.idea.spring.assistant.plugin.suggestion.metadata.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.intellij.codeInsight.documentation.DocumentationManager;
+import com.intellij.codeInsight.documentation.DocumentationManagerUtil;
 import in.oneton.idea.spring.assistant.plugin.misc.GenericUtil;
 import in.oneton.idea.spring.assistant.plugin.suggestion.Suggestion;
 import in.oneton.idea.spring.assistant.plugin.suggestion.SuggestionNode;
@@ -71,7 +71,7 @@ public class SpringConfigurationMetadataGroup {
             // lets show declaration point only if does not match the type
             if (!sourceTypeInJavadocFormat.equals(removeGenerics(className))) {
                 StringBuilder buffer = new StringBuilder();
-                DocumentationManager
+                DocumentationManagerUtil
                         .createHyperlink(buffer, methodForDocumentationNavigation(sourceTypeInJavadocFormat),
                                 sourceTypeInJavadocFormat, false);
                 sourceTypeInJavadocFormat = buffer.toString();

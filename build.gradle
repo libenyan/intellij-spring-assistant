@@ -13,7 +13,7 @@ buildscript {
 plugins {
     id 'java'
     id 'idea'
-    id 'org.jetbrains.intellij' version '1.4.0'
+    id 'org.jetbrains.intellij' version '1.9.0'
 }
 
 group = 'dev.eltonsandre.intellij'
@@ -27,6 +27,9 @@ compileJava.options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 
 repositories {
     mavenLocal()
+    maven {
+        url "https://maven.aliyun.com/nexus/content/groups/public/"
+    }
     mavenCentral()
 }
 
@@ -60,7 +63,7 @@ clean.doFirst {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     type.set('IC')
-    version.set('2021.3.2')
+    version.set('2022.2.2')
     downloadSources.set(true)
     pluginName.set(project.name)
     plugins.set(['java', 'properties', 'yaml', 'maven', 'gradle'])
@@ -73,7 +76,7 @@ publishPlugin {
 }
 
 patchPluginXml {
-    sinceBuild.set('203')
+    sinceBuild.set('221')
     pluginDescription.set(provider { readmeXmlAsHtml() })
     changeNotes.set(provider { changeLogAsHtml() })
 }

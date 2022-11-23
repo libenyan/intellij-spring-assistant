@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 
 import static com.github.eltonsandre.plugin.idea.spring.assistant.common.Constants.PROP_DOT;
 import static com.intellij.codeInsight.completion.CompletionUtilCore.DUMMY_IDENTIFIER_TRIMMED;
-import static com.intellij.codeInsight.documentation.DocumentationManager.createHyperlink;
+import static com.intellij.codeInsight.documentation.DocumentationManagerUtil.createHyperlink;
 import static com.intellij.openapi.util.text.StringUtil.containsChar;
 import static com.intellij.openapi.util.text.StringUtil.endsWithChar;
 import static com.intellij.openapi.util.text.StringUtil.isNotEmpty;
@@ -62,7 +62,7 @@ public class GenericUtil {
             baseClass = matcher.replaceAll(StringUtils.EMPTY);
         }
 
-        createHyperlink(buffer, typeForDocumentationNavigation(baseClass), baseClass, false);
+        createHyperlink(buffer, typeForDocumentationNavigation(baseClass), baseClass, false,false);
         if (typeParameters != null) {
             buffer.append("&lt;");
 
